@@ -91,6 +91,7 @@ public class Homework3 {
 			if(total%6 == 0) System.out.println();
 		}
 		System.out.println("總共有" + total + "個數字可選");	
+		
 	}
 
 }
