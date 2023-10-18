@@ -14,13 +14,15 @@ public class Homework3 {
 //		guess0To9();
 		
 //		(進階功能:產生0~100亂數,每次猜就會提示你是大於還是小於正確答案)
-		guess0To100();
+//		guess0To100();
+		
+//		阿文很喜歡簽大樂透(1~49),但他是個善變的人,上次討厭數字是4,但這次他想要依心情決定討
+//		厭哪個數字,請您設計一隻程式,讓阿文可以輸入他不想要的數字(1~9),畫面會顯示他可以選擇
+//		的號碼與總數
+		printLottery();
 		
 	}
-	
-	
-	
-	
+		
 	private static void printTriangle() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("請輸入三個整數:");
@@ -69,6 +71,28 @@ public class Homework3 {
 			guess = sc.nextInt();		
 		}
 		System.out.println("答對了!答案就是" + number);
+	}
+	
+	private static void printLottery() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("阿文...請輸入你討厭哪個數字?");
+		int numberToExclude = sc.nextInt();	
+		System.out.println();
+		int total = 0;
+		int[] availableNumbers = new int[49];
+		for(int i = 1; i <= 49; i++) {
+			if(i % 10 == numberToExclude) continue;
+			if(numberToExclude == 1 && i>= 10 && i < 20)continue;
+			if(numberToExclude == 2 && i>= 20 && i < 30)continue;
+			if(numberToExclude == 3 && i>= 30 && i < 40)continue;
+			if(numberToExclude == 4 && i>= 40 && i < 50)continue;
+			System.out.print(i + "\t");
+			total++;
+			if(total%6 == 0) System.out.println();
+		}
+		System.out.println("總共有" + total + "個數字可選");
+		
+		
 	}
 
 }
