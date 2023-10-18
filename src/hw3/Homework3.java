@@ -1,5 +1,6 @@
 package hw3;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Homework3 {
@@ -88,9 +89,22 @@ public class Homework3 {
 			if(numberToExclude == 4 && i>= 40 && i < 50)continue;
 			System.out.print(i + "\t");
 			total++;
+			availableNumbers[total-1] = i;
 			if(total%6 == 0) System.out.println();
 		}
-		System.out.println("總共有" + total + "個數字可選");			
+		System.out.println("總共有" + total + "個數字可選");
+
+		System.out.print("六個號碼是: ");
+		int count = 0;
+		int[] selectedIndexes = new int[6];
+		while(count < 6) {
+			int index = (int)(Math.random()*total);
+			Arrays.sort(selectedIndexes);
+			if(Arrays.binarySearch(selectedIndexes, index) < 0) {
+			System.out.print(availableNumbers[index]);
+			count++;
+			}
+		}
 	}
 
 }
