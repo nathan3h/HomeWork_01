@@ -118,8 +118,8 @@ public class Homework4 {
 	private static void dayOfYear() {
 		int[] monthDays = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-		boolean acceptableDate = false;
-		while (!acceptableDate) {
+		boolean isAcceptableDate = false;
+		while (!isAcceptableDate) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("請輸入西元yyyy年,mm月,dd日:");
 			int year = sc.nextInt();
@@ -131,10 +131,10 @@ public class Homework4 {
 				continue;
 			}
 
-			boolean leapYear = year % 4 == 0;
+			boolean isLeapYear = year % 4 == 0;
 
-			if (date > monthDays[month - 1] && month != 2 || !leapYear && month == 2 && date > 28
-					|| leapYear && month == 2 && date > 29) {
+			if (date > monthDays[month - 1] && month != 2 || !isLeapYear && month == 2 && date > 28
+					|| isLeapYear && month == 2 && date > 29) {
 				System.out.println("西元" + year + "年" + month + "月沒有" + date + "號.");
 				continue;
 			}
@@ -143,13 +143,13 @@ public class Homework4 {
 			for (int i = 0; i < month; i++) {
 				int curMonth = i + 1;
 				if (month == curMonth) days += date;
-				else if (leapYear && curMonth == 2) days += 29;
+				else if (isLeapYear && curMonth == 2) days += 29;
 				else days += monthDays[curMonth-1];
 			}
 			
 			System.out.println("輸入的日期為該年第" + days + "天");
 
-			acceptableDate = true;
+			isAcceptableDate = true;
 		}
 	}
 	
