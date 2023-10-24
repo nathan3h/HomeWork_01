@@ -142,8 +142,8 @@ public class Homework4 {
 			int days = 0;
 			for (int i = 0; i < month; i++) {
 				int curMonth = i + 1;
-				if (leapYear && curMonth == 2) days += 29;
-				else if (month == curMonth) days += date;
+				if (month == curMonth) days += date;
+				else if (leapYear && curMonth == 2) days += 29;
 				else days += monthDays[curMonth-1];
 			}
 			
