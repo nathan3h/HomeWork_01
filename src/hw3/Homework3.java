@@ -32,8 +32,11 @@ public class Homework3 {
 		int side1 = sc.nextInt();
 		int side2 = sc.nextInt();
 		int side3 = sc.nextInt();
-		if (side1 <= 0 || side2 <= 0 || side3 <= 0) {
-			System.out.println("不是三角形");
+		if (side1 <= 0 || side2 <= 0 || side3 <= 0 ||
+				side1 + side2 <= side3 ||
+				side1 + side3 <= side2 ||
+				side2 + side3 <= side1) {
+			System.out.println("不是三角形: 三角形任兩邊的總長度應該大於第三邊的長度, 三角形任一邊的長度應該大於0");
 		} else if (side1 == side2 && side2 == side3) {
 			System.out.println("正三角形");
 		} else if (side1 == side2 || side2 == side3 || side1 == side3) {

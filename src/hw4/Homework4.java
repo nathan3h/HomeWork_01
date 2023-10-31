@@ -1,6 +1,7 @@
 package hw4;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Homework4 {
@@ -100,6 +101,7 @@ public class Homework4 {
 		System.out.println("陣列裡面共有 " + count + " 個母音");
 	}
 
+//	int[][] coWorkers = {{ 25, 2500 }, { 32,800 }, { 8, 500 }, { 19, 1000 }, { 27, 1200 } };
 	private static void lendMoney(int[][] coWorkers) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("小華要借: ");
@@ -118,8 +120,7 @@ public class Homework4 {
 	private static void dayOfYear() {
 		int[] monthDays = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-		boolean isAcceptableDate = false;
-		while (!isAcceptableDate) {
+		while (true) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("請輸入西元yyyy年,mm月,dd日:");
 			int year = sc.nextInt();
@@ -149,7 +150,7 @@ public class Homework4 {
 			
 			System.out.println("輸入的日期為該年第" + days + "天");
 
-			isAcceptableDate = true;
+			break;
 		}
 	}
 	
@@ -159,7 +160,8 @@ public class Homework4 {
 			Integer[] examScores = Arrays.copyOf(scores[i], scores[i].length);
 			Arrays.sort(examScores);
 			int maxScore = examScores[examScores.length-1];
-			int studentIndex = Arrays.asList(scores[i]).indexOf(maxScore);
+			List<Integer> scoresList = Arrays.asList(scores[i]);
+			int studentIndex = scoresList.indexOf(maxScore);
 			maxScoreCount[studentIndex]++;
 		}
 		for(int i = 0; i < maxScoreCount.length; i++) {
