@@ -84,7 +84,7 @@ public class Homework8 {
 		}
 		System.out.println("\n\n--------------------移除不是java.lang.Number相關的物件--------------------");
 
-		list.removeIf(obj -> obj instanceof Number);
+		list.removeIf(obj -> !(obj instanceof Number));
 		length = list.size();
 		for (int i = 0; i < length; i++) {
 			System.out.print(list.get(i) + "\t");
