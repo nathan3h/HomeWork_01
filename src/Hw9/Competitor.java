@@ -1,4 +1,4 @@
-package Hw9;
+package hw9;
 
 public class Competitor implements Runnable {
 

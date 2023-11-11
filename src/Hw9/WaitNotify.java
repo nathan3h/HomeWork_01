@@ -1,4 +1,4 @@
-package Hw9;
+package hw9;
 
 class Bank {
 	private int money = 0;
