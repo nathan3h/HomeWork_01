@@ -17,14 +17,14 @@ class Bank {
 				e.printStackTrace();
 			}
 		}
+		depositCount++;
 		if (money <= 3000) {
 			money += qty;
 			System.out.println("媽媽存了2000,帳戶共有:" + money);
 			notify();
-		}
-		depositCount++;
-		if (depositCount >= 10) {
+		} else if (depositCount >= 10) {
 			System.out.println("媽媽匯完了");
+			notify();
 		}
 	}
 
@@ -32,15 +32,20 @@ class Bank {
 		while (money < qty) {
 			System.out.println("雄大看到帳戶沒錢,暫停提款");
 			try {
-				wait();
-				System.out.println("雄大被老媽告知帳戶以經有錢!");
+				if (depositCount < 10) {
+					wait();
+					System.out.println("雄大被老媽告知帳戶以經有錢!");
+				}
+				break;
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		money -= qty;
+		if (money >= qty) {
+			money -= qty;
+			System.out.println("雄大領了1000,帳戶共有:" + money);
+		}
 		withdrawCount++;
-		System.out.println("雄大領了1000,帳戶共有:" + money);
 		if (money < 2000) {
 			System.out.println("雄大看到餘額在2000以下,要求匯款");
 			notify();
