@@ -2,6 +2,7 @@ package hw9;
 
 class Bank {
 	private int money = 0;
+	private int depositCount = 0;
 	private int withdrawCount = 0;
 
 	synchronized public void deposit(int qty) {
@@ -21,6 +22,10 @@ class Bank {
 			System.out.println("媽媽存了2000,帳戶共有:" + money);
 			notify();
 		}
+		depositCount++;
+		if (depositCount >= 10) {
+			System.out.println("媽媽匯完了");
+		}
 	}
 
 	synchronized public void withdraw(int qty) {
@@ -39,8 +44,8 @@ class Bank {
 		if (money < 2000) {
 			System.out.println("雄大看到餘額在2000以下,要求匯款");
 			notify();
-		}
-		else if (withdrawCount >= 10) {
+		} else if (withdrawCount >= 10) {
+			System.out.println("雄大領完了");
 			notify();
 		}
 	}
@@ -56,7 +61,6 @@ class Depositor extends Thread {
 	public void run() {
 		for (int i = 1; i <= 10; i++)
 			bank.deposit(2000);
-		System.out.println("媽媽匯完了");
 	}
 }
 
@@ -71,7 +75,6 @@ class Withdrawer extends Thread {
 	public void run() {
 		for (int i = 1; i <= 10; i++)
 			bank.withdraw(1000);
-		System.out.println("雄大領完了");
 	}
 }
 
