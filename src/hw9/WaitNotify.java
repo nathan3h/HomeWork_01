@@ -56,7 +56,7 @@ class Depositor extends Thread {
 	public void run() {
 		for (int i = 1; i <= 10; i++)
 			bank.deposit(2000);
-		System.out.println("媽媽存完了");
+		System.out.println("媽媽匯完了");
 	}
 }
 
